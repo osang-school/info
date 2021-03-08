@@ -1,3 +1,5 @@
-module github.com/osang-school/info
+module github.com/osang-school/data
 
 go 1.15
+
+require github.com/PuerkitoBio/goquery v1.6.1
