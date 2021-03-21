@@ -140,7 +140,10 @@ func CrawlPage(url Url, id uint) (*Detail, error) {
 			case 0:
 				newFile.Name = s.Text()
 				downloadLink, _ := s.Attr("href")
-				newFile.Download = "https://school.gyo6.net" + downloadLink
+				if strings.HasPrefix(downloadLink, "/board") {
+					downloadLink = "https://school.gyo6.net" + downloadLink
+				}
+				newFile.Download = downloadLink
 			case 1:
 				previewLink, _ := s.Attr("href")
 				newFile.Preview = previewLink
